@@ -1,0 +1,187 @@
+/* Base styles */
+
+
+* {
+
+    box-sizing: border-box;
+
+}
+
+li {
+
+    list-style: none;
+
+}
+
+:root {
+
+    --primary: #424250;
+    --color-green: #32c48d;
+    --color-white: #ffffff;
+    --color-dark-grey: #33333d;
+    --color-medium-grey: #424250;
+    --color-light-grey: #9ca3ae;
+
+}
+
+body {
+
+    padding: 0;
+    margin: 0;
+
+    background-color: var(--primary);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+
+}
+
+/* Styling */
+
+html {
+
+    height: 100vh;
+
+}
+
+h1 {
+
+    font-size: 3rem;
+    font-weight: 900;
+    color: var(--color-light-grey)
+
+}
+
+
+nav img {
+
+    width: 100px;
+    height: 50px;
+
+}
+
+nav {
+
+    background-color: #333;
+    overflow: hidden;
+    font-size: 1.2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+}
+
+nav ul {
+
+    list-style-type: none;
+
+}
+
+nav li {
+
+    float: left;
+
+}
+
+nav li a {
+
+    color: white;
+    text-decoration: none;
+    text-align: center;
+    padding: 0px 10px 0px 10px;
+
+}
+
+main {
+
+    background-color: transparent;
+
+}
+
+/* Controls */
+
+.controls {
+
+    background-color: yellow;
+
+}
+
+/* Counter */
+
+.counter {
+
+    background-color: #424250;
+
+}
+
+.counter_value {
+
+    width: 100%;
+    height: 15rem;
+    text-align: center;
+    font-size: 8rem;
+    font-weight: 900;
+    color: white;
+    background: none;
+    border-width: 0;
+    border-bottom: 1px solid lightgray;
+
+}
+
+.counter_button {
+
+    background: none;
+    width: 50%;
+    border-width: 0;
+    color: lightgray;
+    font-size: 3rem;
+    height: 10rem;
+    border-bottom: 1px solid lightgray;
+    transition: transform 0.3s;
+    transform: translateY(0);
+
+}
+
+.counter_button:active {
+
+    background: var(--color-medium-grey);
+    transform: translateY(2%);
+
+}
+
+.counter_button:disabled {
+
+    background-color: red;
+
+}
+
+.counter_actions {
+
+    display: flex;
+
+}
+
+.counter_button_first {
+
+    border-right: 1px solid lightgray;
+
+}
+
+/* Footer */
+
+footer {
+
+    background-color: #424250;
+    color: lightgray;
+    padding: 2rem;
+    font-size: 0.8rem;
+    text-align: center;
+}
+
+.footer_link {
+
+    color: white;
+
+}
