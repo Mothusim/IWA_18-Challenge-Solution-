@@ -1,5 +1,5 @@
 const date= 2050;
-const status= 'student';
+const stat= 'parent';
 let count = 0;
 
 if (date == 2050) {
@@ -10,7 +10,7 @@ if (date == 2050) {
 	console.log(date, 'Freedom Day');
     count = count + 4;
 
-	if (status == "student") {
+	if (stat == "student") {
 	  console.log('June', 'Youth Day');
       count = count + 1;
     }
@@ -21,7 +21,7 @@ if (date == 2050) {
 	console.log(date, 'Day of Reconciliation');
 	count = count + 3;
 
-	if (status == "parent") {
+	if (stat == "parent") {
 	  console.log(date, 'Christmas Day');
       count = count + 1;
     }
@@ -30,6 +30,6 @@ if (date == 2050) {
 	count = count + 1;
 }
 
-console.log('Your status is:', status);
+console.log('Your status is:', stat);
 console.log('The year is:', date);
 console.log('The total holidays is:', count);
