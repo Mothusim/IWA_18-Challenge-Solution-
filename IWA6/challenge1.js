@@ -12,13 +12,13 @@ const secondaryContainsDigits = secondaryValid && /^[0-9]+$/.test(secondaryPhone
 
 if (primaryValid) {
 
-    console.log('Primary phone is valid numerical string:', primaryContainsDigits);
+    console.log('Primary phone is valid numerical string: ', primaryContainsDigits);
 
 }
 
 if (secondaryValid) {
 
-    console.log('Secondary phone is valid numerical string:', secondaryContainsDigits);
+    console.log('Secondary phone is valid numerical string: ', secondaryContainsDigits);
 
 }
 
