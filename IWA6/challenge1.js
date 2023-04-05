@@ -7,18 +7,18 @@ const primaryValid = typeof primaryPhone === 'string';
 const secondaryValid = typeof secondaryPhone === 'string';
 
 
-const primaryContainsDigits = primaryValid && /^[0-9]+$/.test(primaryPhone);
-const secondaryContainsDigits = secondaryValid && /^[0-9]+$/.test(secondaryPhone);
+const primaryContainsOnlyDigits = primaryValid && /^[0-9]+$/.test(primaryPhone);
+const secondaryContainsOnlyDigits = secondaryValid && /^[0-9]+$/.test(secondaryPhone);
 
 if (primaryValid) {
 
-    console.log('Primary phone is valid numerical string: ', primaryContainsDigits);
+    console.log('Primary phone is valid numerical string: ', primaryContainsOnlyDigits);
 
 }
 
 if (secondaryValid) {
 
-    console.log('Secondary phone is valid numerical string: ', secondaryContainsDigits);
+    console.log('Secondary phone is valid numerical string: ', secondaryContainsOnlyDigits);
 
 }
 
