@@ -22,6 +22,8 @@ const leo2 = `${leoName} ${leoSurname} (owed: R ${leoIntBal})`;
 const sarah2 = `${sarahName} ${sarahSurname} (owed: R ${sarahIntBal})`;
 const totalAmount = leoIntBal + sarahIntBal;
 
+
+
 // Adding the space between the 3 and 4 integer of the totalAmount variable
 
 const str = totalAmount.toString();
@@ -31,7 +33,6 @@ const splitStr = str.split('');
 const space = splitStr.indexOf('9');
 
 const ya = str.slice(0, space) + ' ' +  str.slice(space);
-
 
 const result2 = `${leo2}\n${sarah2}\n\n ${divider} \n   ${total}R ${ya} \n ${divider}`;
 
