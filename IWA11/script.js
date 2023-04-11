@@ -1,8 +1,5 @@
-const root1 = document.querySelector('h1');
-const color = document.querySelector('body')
-
-color.style.backgroundColor='red';
-root1.innerHTML = "hey";
+const root1 = document.querySelector('.biscuits>.count');
+root1.innerHTML = 'hey';
 
 
 
