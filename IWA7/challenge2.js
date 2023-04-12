@@ -1,8 +1,9 @@
+// I removed the console.log code line
+
 const nickname= "Timmy";
 const firstName = "Timothy";
 const selection = prompt("nickname or firstName?", "firstName");
 
-/* const selection = select; */
 
 if (selection == 'nickname') {
 

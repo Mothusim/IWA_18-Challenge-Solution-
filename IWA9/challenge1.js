@@ -9,7 +9,8 @@ const expenses = {
     food: 51.7501,
     transport:  10.2,
 }
-  
+
+// added inverted commas to the keys
 const tax = {
     '734': '3%',
     '234': '20%',
@@ -19,7 +20,7 @@ const tax = {
 }
 
 const rent = {
-    'none': '0',
+    'none': '0', //added inverted commas to the none key
     'small-room': 200,
     'large-room': 300,
     'small-apartment': 400,
@@ -32,9 +33,8 @@ const rent = {
 
 // You can change below however you want
 
-const taxAsDecimal = (parseInt(tax[913])/100)
-const startingAfterTax = salary * (1 - taxAsDecimal)
-//const type = ` ${size}-${lodging}`
+const taxAsDecimal = (parseInt(tax[913])/100) // used bracket notation to get the value of the tax object's 913 key value
+const startingAfterTax = salary * (1 - taxAsDecimal) // i put brackets around the 1-taxAsDecimal expression
 
 const typeFinal = rent['large-apartment']
 

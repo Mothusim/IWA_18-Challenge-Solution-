@@ -1,3 +1,5 @@
+//changed the entire code
+
 const leoName = 'Leo'
 const leoSurname = 'Musvaire'
 const leoBalance = '-9394'
@@ -13,9 +15,6 @@ const divider = '----------------------------------'
 const leoIntBal = parseFloat(((leoBalance) * (-1)).toFixed(2));
 const sarahIntBal = parseFloat(((sarahBalance) * (-1)).toFixed(2));
 
-/* console.log(leoIntBal);
-console.log(sarahIntBal); */
-
 const total = "Total amount owed: "
 
 const leo2 = `${leoName} ${leoSurname} (owed: R ${leoIntBal})`;
@@ -24,7 +23,7 @@ const totalAmount = leoIntBal + sarahIntBal;
 
 
 
-// Adding the space between the 3 and 4 integer of the totalAmount variable
+// Adding the space between the 3rd and 4th integer of the totalAmount variable
 
 const str = totalAmount.toString();
 

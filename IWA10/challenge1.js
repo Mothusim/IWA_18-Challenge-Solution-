@@ -135,8 +135,8 @@ const localeTimeForLastDay = dateForLastDay.toLocaleDateString("en-GB", {year:'n
 const lastDay = localeTimeForLastDay
 const lastMonth = localeTimeForLastDay
 
-console.log(firstDay)
-console.log(lastDay)
+console.log(localeTimeForFirstDay)
+console.log(localeTimeForLastDay)
 
 const randomHoliday = Math.round(Math.random() * 8)
 console.log(holidays[randomHoliday].date.toLocaleDateString())

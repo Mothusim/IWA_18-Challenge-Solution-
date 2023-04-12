@@ -16,7 +16,7 @@ const sarahPostal = '0310'
 
 const leo = {
 	name : leoName,
-	balance : leoBalance,
+	balance : leoBalance,063418
 	accessId : '47afb389-8014-4d0b-aff3-e40203d2107f',
 	age: 24,
 	address :{
@@ -26,10 +26,11 @@ const leo = {
 	}
 };
 
+//added an equal sign, and removed them when assigning values to keys
 const sarah = {
 	name2: sarahName + sarahSurname,
 	age: 62,
-	accessId: '6b279ae5-5657-4240-80e9-23f6b635f7a8',
+	accessId: '6b279ae5-5657-4240-80e9-23f6b635f7a8', //added inverted commas
 	balance: sarahBalance,
 	address: {
 		number: sarahNumber,
@@ -38,5 +39,6 @@ const sarah = {
 	}
 }
 
+//used dot notation
 console.log(leo, leo.address.postalCode)
 console.log(sarah, sarah.address.postalCode)
