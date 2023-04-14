@@ -14,13 +14,18 @@ const list1 = data.lists[0][1];
 const list2 = data.lists[1][1];
 const list3 = data.lists[2][1];
 
-const result = []
+let result = []
 
 const extractBiggest = () => {
-	
-    for (i=0, i<list1, i++) {
-		
+	if (list1[list1.length - 1] >= list2[list2.length - 1] && list1[list1.length - 1] >= list3[list3.length - 1]) {
+		return list1.pop()
 	}
+
+	if (list2[list2.length - 1] >= list3[list3.length - 1]) {
+		return list2.pop()
+	}
+	
+		return list3.pop()
 }
 
 // Only edit above
