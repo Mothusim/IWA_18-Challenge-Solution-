@@ -1,25 +1,33 @@
-// script.js
+
+function add(a, b) {
+	
+	return a + b
 
 
-
-const add = (a, b) => { return a + b }
-
-
-const multiply = (a, b) => { return a * b }
-
-
-function internal(a, b) {
-	console.log(add(a, b))
-	console.log(multiply(a, b))
 }
 
-internal((2, 4))
+function multiply(a, b) {
+	
+	return a * b
+
+}
+
+function internal() {
+
+	/* console.log((this.internal.a + this.internal.b) * this.internal.c) */
+
+	add = this.add(this.internal.a, this.internal.b)
+	multiply = this.multiply(add, this.internal.c)
+
+	console.log(multiply);
+
+} 
 
 
 
 // Not allowed to change below this
 
-/* const example1 = {
+const example1 = {
 	internal: {
 		a: 2,
 		b: 4,
@@ -42,4 +50,4 @@ const example2 = {
 }
 
 example1.calculate()
-example2.calculate() */
+example2.calculate()

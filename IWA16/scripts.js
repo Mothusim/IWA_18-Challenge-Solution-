@@ -140,16 +140,30 @@ const athlete1 = {
 
 const dl = document.createElement('dl');
 
+
 for (const [key, value] of Object.entries(athlete1)) {
+  
   const dt = document.createElement('dt');
   const dd = document.createElement('dd');
-  dt.textContent = key;
+
+  dt.textContent = `${key}:`;
   dd.textContent = value;
   dl.appendChild(dt);
   dl.appendChild(dd);
+
+  // styling
+  
+  dl.style.display = 'grid'
+  dl.style.gridTemplateColumns = 'max-content auto'
+
+  dt.style.gridColumnStart = '1'
+
+  dd.style.gridColumnStart = '2'
+  section1.appendChild(dl);
 }
 
-section1.appendChild(dl);
+
+
 
 
 //section1.appendChild(athlete1)
