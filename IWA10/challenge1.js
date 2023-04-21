@@ -125,15 +125,10 @@ const lastHolidayTimestamp = Math.max(
 const dateForFirstDay = new Date(firstHolidayTimestamp)
 const localeTimeForFirstDay = dateForFirstDay.toLocaleDateString("en-GB", {year:'numeric', month:'2-digit', day:'2-digit'})
 
-/* const firstDay = localeTimeForFirstDay;
-const firstMonth = localeTimeForFirstDay; */
 
 const dateForLastDay = new Date(lastHolidayTimestamp)
 const localeTimeForLastDay = dateForLastDay.toLocaleDateString("en-GB", {year:'numeric', month:'2-digit', day:'2-digit'})
 
-
-/* const lastDay = localeTimeForLastDay
-const lastMonth = localeTimeForLastDay */
 
 console.log(localeTimeForFirstDay)
 console.log(localeTimeForLastDay)

@@ -21,11 +21,12 @@ const extractBiggest = () => {
 		return list1.pop()
 	}
 
-	if (list2[list2.length - 1] >= list3[list3.length - 1]) {
+	else if(list2[list2.length - 1] >= list3[list3.length - 1]) {
 		return list2.pop()
-	}
+	}else{
 	
 		return list3.pop()
+}
 }
 
 // Only edit above

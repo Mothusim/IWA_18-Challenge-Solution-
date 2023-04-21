@@ -4,8 +4,6 @@ let calculated = '1'
 
 // Only allowed to change below
 
-console.log(2>2)
-
 const logCalc = () => { 
     const isString = typeof calculated == 'numerical-string' 
     const calculatedAsNumber = isString ? calculated : parseInt(calculated)

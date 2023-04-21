@@ -132,10 +132,10 @@ console.log(formattedTime)
 // DOM
 
 const athlete1 = {
-  athlete: athlete1FullName,
-  totalRaces: race,
-  latestEventDate: date0 > date1 ? date0Str : date1Str,
-  latestTotalTime: formattedTime,
+  'Athlete': athlete1FullName,
+  'Total Races': race,
+  'Event Date': date0 > date1 ? date0Str : date1Str,
+  'Total Time': formattedTime,
 };
 
 const dl = document.createElement('dl');
@@ -161,6 +161,103 @@ for (const [key, value] of Object.entries(athlete1)) {
   dd.style.gridColumnStart = '2'
   section1.appendChild(dl);
 }
+
+// Athlete
+
+const section2 = document.querySelector('[data-athlete="SV782"]')
+
+const title2 = document.createElement('h2')
+title2.innerHTML = data.response.data.SV782.id
+
+section1.appendChild(title2)
+
+
+// Name'
+
+const athlete2FirstName = data.response.data.SV782.firstName
+const athlete2Surname = data.response.data.SV782.surname
+
+const athlete2FullName = `${athlete2FirstName} ${athlete2Surname}`
+
+console.log(athlete2FullName)
+
+
+// Number of races
+const race2 = data.response.data.SV782.races.length
+
+console.log(race2)
+
+
+// Latest date
+
+const schalkDate0 = new Date(data.response.data.SV782.races[0].date)
+const schalkDate0Str = date0.toLocaleDateString('en-GB', {day: 'numeric', month: 'long', year: 'numeric'})
+
+const schalkDate1 = new Date(data.response.data.SV782.races[1].date)
+const schalkDate1Str = date1.toLocaleDateString('en-GB', {day: 'numeric', month: 'long', year: 'numeric'})
+
+if (schalkDate0 > schalkDate1) {
+
+  console.log(schalkDate0Str)
+
+}else{
+
+  console.log(schalkDate1Str)
+
+}
+
+
+// Time
+const lastRace2 = data.response.data.SV782.races[race-1]['time']
+
+let sum2 = 0
+for (let i=0; i<lastRace2.length; i++) {
+
+  sum2 += lastRace2[i]
+
+}
+
+const hours2 = Math.floor(sum / 60)
+const minutes2 = sum % 60
+
+const formattedTime2 = `${hours2.toString().padStart(2, '0')}:${minutes2.toString().padStart(2, '0')}`
+
+console.log(formattedTime2)
+
+
+// DOM
+
+const athlete2 = {
+  'Athlete': athlete2FullName,
+  'Total Races': race2,
+  'Event Date': schalkDate0 > schalkDate1 ? schalkDate0Str : schalkDate1Str,
+  'Total Time': formattedTime2,
+};
+
+const dl2 = document.createElement('dl');
+
+
+for (const [key, value] of Object.entries(athlete2)) {
+  
+  const dt2 = document.createElement('dt');
+  const dd2 = document.createElement('dd');
+
+  dt2.textContent = `${key}:`;
+  dd2.textContent = value;
+  dl2.appendChild(dt2);
+  dl2.appendChild(dd2);
+
+  // styling
+  
+  dl2.style.display = 'grid'
+  dl2.style.gridTemplateColumns = 'max-content auto'
+
+  dt2.style.gridColumnStart = '1'
+
+  dd2.style.gridColumnStart = '2'
+  section2.appendChild(dl2);
+}
+
 
 
 
