@@ -33,7 +33,7 @@ const MONTHS = [
             },
             {
               date: '2022-12-02T22:00:00.000Z',
-              time: [6, 7, 8, 7],
+              time: [6, 7, 8, 7, 60],
             },
           ],
         },
@@ -190,11 +190,11 @@ console.log(race2)
 
 // Latest date
 
-const schalkDate0 = new Date(data.response.data.SV782.races[0].date)
-const schalkDate0Str = date0.toLocaleDateString('en-GB', {day: 'numeric', month: 'long', year: 'numeric'})
+const schalkDate0 = new Date(data.response.data.SV782.races[2].date)
+const schalkDate0Str = schalkDate0.toLocaleDateString('en-GB', {day: 'numeric', month: 'long', year: 'numeric'})
 
-const schalkDate1 = new Date(data.response.data.SV782.races[1].date)
-const schalkDate1Str = date1.toLocaleDateString('en-GB', {day: 'numeric', month: 'long', year: 'numeric'})
+const schalkDate1 = new Date(data.response.data.SV782.races[3].date)
+const schalkDate1Str = schalkDate1.toLocaleDateString('en-GB', {day: 'numeric', month: 'long', year: 'numeric'})
 
 if (schalkDate0 > schalkDate1) {
 
@@ -208,7 +208,7 @@ if (schalkDate0 > schalkDate1) {
 
 
 // Time
-const lastRace2 = data.response.data.SV782.races[race-1]['time']
+const lastRace2 = data.response.data.SV782.races[race2-1]['time']
 
 let sum2 = 0
 for (let i=0; i<lastRace2.length; i++) {
@@ -217,8 +217,8 @@ for (let i=0; i<lastRace2.length; i++) {
 
 }
 
-const hours2 = Math.floor(sum / 60)
-const minutes2 = sum % 60
+const hours2 = Math.floor(sum2 / 60)
+const minutes2 = sum2 % 60
 
 const formattedTime2 = `${hours2.toString().padStart(2, '0')}:${minutes2.toString().padStart(2, '0')}`
 
