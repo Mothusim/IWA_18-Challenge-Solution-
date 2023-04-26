@@ -33,7 +33,7 @@ const MONTHS = [
             },
             {
               date: '2022-12-02T22:00:00.000Z',
-              time: [6, 7, 8, 7, 60],
+              time: [6, 7, 8, 7],
             },
           ],
         },
@@ -112,7 +112,7 @@ if (date0 > date1) {
 
 
 // Time
-const lastRace = data.response.data.NM372.races[race-1]['time']
+const lastRace = data.response.data.NM372.races[race-1]['time']  //Time is in an array
 
 let sum = 0
 for (let i=0; i<lastRace.length; i++) {

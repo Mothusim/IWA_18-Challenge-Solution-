@@ -16,7 +16,7 @@ const sarahPostal = '0310'
 
 const leo = {
 	name : leoName,
-	balance : leoBalance,063418
+	balance : leoBalance,
 	accessId : '47afb389-8014-4d0b-aff3-e40203d2107f',
 	age: 24,
 	address :{
