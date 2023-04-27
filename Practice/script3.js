@@ -37,19 +37,19 @@ const MONTHS = [
     const days = createArray(7);
     let result = [];
   
-    for (let weekIndex = 1; weekIndex < weeks.length+1; weekIndex++) {
+    for (let weekIndex = 0; weekIndex < weeks.length; weekIndex++) {
       let value = {
-        week: weekIndex,
+        week: weekIndex+1,
         days: [],
       };
   
-      for (let dayIndex = 1; dayIndex < days.length+1; dayIndex++) {
-        const day = dayIndex - startDay;
+      for (let dayIndex = 0; dayIndex < days.length; dayIndex++) {
+        const day = (weekIndex * 7) + dayIndex - startDay + 1;
         const isValid = day > 0 && day <= daysInMonth;
   
         value.days.push({
           dayOfWeek: dayIndex + 1,
-          value: isValid ? day : null,
+          value: isValid ? day : '',
         });
       }
   
@@ -58,14 +58,14 @@ const MONTHS = [
   
     return result;
   };
+
+  console.log(createData())
   
   const addCell = (existing, classString, value) => {
-    return /* html */ `
+    return  `${existing}
         <td class="${classString}">
           ${value}
         </td>
-    
-        ${existing}
       `;
   };
   
