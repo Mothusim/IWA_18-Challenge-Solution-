@@ -1,34 +1,72 @@
-<!-- index.html -->
-
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Calendar</title>
-        <link rel="stylesheet" href="./styless.css">
-        <script src="./script3.js" defer type="module"></script>
-    </head>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+          margin-bottom: 10px;
+        }
+  
+        li button {
+          font-size: 8px;
+          margin-left: 20px;
+          color: #666;
+        }
+    </style>
+</head>
+<body>
 
-    <body>
-        <h1 data-title>Loading...</h1>
+    <h1>My shopping list</h1>
 
-        <table class="table">
-            <thead>
-                <tr>
-                    <th class="table__cell table__cell_heading">Week</th>
-                    <th class="table__cell table__cell_heading">Sun</th>
-                    <th class="table__cell table__cell_heading">Mon</th>
-                    <th class="table__cell table__cell_heading">Tue</th>
-                    <th class="table__cell table__cell_heading">Wed</th>
-                    <th class="table__cell table__cell_heading">Thu</th>
-                    <th class="table__cell table__cell_heading">Fri</th>
-                    <th class="table__cell table__cell_heading">Sat</th>
-                </tr>
-            </thead>
+    <div>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add item</button>
+    </div>
 
-            <tbody data-content></tbody>
-        </table>
-    </body>
+    <ul>
+
+    </ul>
+
+    <script>
+
+        const ul = document.querySelector('ul');
+        const input = document.querySelector('input');
+        const button = document.querySelector('button');
+
+        const clicked = () => {
+
+            const info = input.value;
+
+            input.value = '';
+
+            const li = document.createElement('li');
+            const span = document.createElement('span');
+            const button = document.createElement('button');
+
+            li.appendChild(span);
+            li.appendChild(button);
+
+            span.textContent = info;
+            button.textContent = 'Delete';
+
+            ul.appendChild(li);
+
+            button.addEventListener('click', ()=>{
+
+                ul.removeChild(li);
+            });
+
+            input.focus();
+
+        }
+
+        button.addEventListener('click', clicked)
+
+    </script>
+    
+</body>
 </html>
