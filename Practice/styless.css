@@ -1,65 +1,249 @@
-/* styles.css */
 
-* {
-    box-sizing: border-box;
-  }
+/* Base styles */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+}
+
+.column {
+  flex: 1;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px;
+  min-height: 400px;
+  position: relative;
+}
+
+.column h3 {
+  font-size: 18px;
+  margin-top: 0;
+}
+
+.order-details-container {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+
+.order-details-container:hover {
+  background-color: #f2f2f2;
+}
+
+.order-details-container h4 {
+  font-size: 16px;
+  margin-top: 0;
+}
+
+.order-details-container p {
+  margin-bottom: 5px;
+}
+
+/* Help overlay styles */
+#help-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+#help-overlay-content {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 600px;
+  text-align: center;
+}
+
+#help-overlay-content h2 {
+  margin-top: 0;
+}
+
+#help-overlay-close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Order overlay styles */
+#order-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1;
+}
+
+#order-overlay-content {
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  max-width: 600px;
+  text-align: center;
+}
+
+#order-overlay-content h2 {
+  margin-top: 0;
+}
+
+#order-overlay-close {
+  position: absolute;
+  top: 5px;
+  right: 10px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#order-overlay-content input[type="text"],
+#order-overlay-content select {
+  margin-bottom: 10px;
+  width: 100%;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+}
+
+#order-overlay-content button {
+  background-color: #4CAF50;
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+#order-overlay-content button:hover {
+  background-color: #3e8e41;
+}
+
+/* order edit overlay */
+#order-edit-overlay {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+}
+
+#order-edit-overlay-content {
+  background-color: #fefefe;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 60%;
+  max-width: 700px;
+  position: relative;
+  border-radius: 10px;
+}
+
+#order-edit-overlay-close {
+  color: #aaa;
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#order-edit-overlay-close:hover,
+#order-edit-overlay-close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+#order-edit-overlay-inputs {
+  display: flex;
+  flex-direction: column;
+}
+
+#order-edit-overlay-inputs label {
+  margin-bottom: 10px;
+}
+
+#order-edit-overlay-inputs input,
+#order-edit-overlay-inputs select {
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+}
+
+#order-edit-overlay-inputs select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23707070"><path d="M10 14l6-6H4l6 6z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+}
+
+#order-edit-overlay-inputs button {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #fff;
+  background-color: #4CAF50;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#order-edit-overlay-inputs button:hover {
+  background-color: #3e8e41;
+}
+
+#order-edit-overlay-inputs button[type="reset"] {
+  background-color: #f44336;
+}
+
+#order-edit-overlay-inputs button[type="reset"]:hover {
+  background-color: #d32f2f;
+}
+
+#order-edit-overlay-message {
+  margin-top: 10px;
+  font-size: 16px;
+  font-style: italic;
+  color: #888;
+}
+
+
+
+
+
   
-  body {
-    margin: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    flex-direction: column;
-    font-family: sans-serif;
-    background: rgba(0, 0, 0, 0.1);
-    color: rgba(0, 0, 0, 0.9);
-  }
-  
-  .table {
-    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
-    white-space: nowrap;
-    border-spacing: 0;
-    border-radius: 8px;
-    overflow: hidden;
-    background: rgba(255, 255, 255, 1);
-  }
-  
-  .table__cell {
-    width: 5rem;
-    height: 5rem;
-    align-items: center;
-    justify-content: center;
-    border-collapse: collapse;
-    border-right: 1px solid rgb(0, 0, 0, 0.1);
-    border-bottom: 1px solid rgb(0, 0, 0, 0.1);
-    text-align: center;
-    font-weight: bold;
-  }
-  
-  .table__cell_heading {
-    border-bottom: 1px solid rgb(0, 0, 0, 1);
-    background: rgba(0, 0, 0, 0.9);
-    color: white;
-  }
-  
-  .table__cell_today {
-    color: blue;
-    background: rgba(0, 0, 255, 0.1);
-  }
-  
-  .table__cell_sidebar {
-    color: rgba(0, 0, 0, 0.8);
-    border-right: 1px solid rgb(0, 0, 0, 0.2);
-    font-weight: normal;
-    font-size: 0.8rem;
-  }
-  
-  .table__cell_weekend {
-    font-weight: normal;
-    color: rgba(0, 0, 0, 0.6);
-  }
-  
-  .table__cell_alternate {
-    background: rgba(0, 0, 0, 0.05);
-  }

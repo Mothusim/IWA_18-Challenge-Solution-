@@ -1,11 +1,10 @@
+import { updateDragging, createOrderData, state } from "./data.js";
 import {
-  updateDragging,
-  createOrderData,
-  state,
-  TABLES,
-  COLUMNS,
-} from "./data.js";
-import { html, updateDraggingHtml, moveToColumn } from "./view.js";
+  createOrderHtml,
+  html,
+  updateDraggingHtml,
+  moveToColumn,
+} from "./view.js";
 
 /**
  * A handler that fires when a user drags over any element inside a column. In
@@ -18,6 +17,9 @@ import { html, updateDraggingHtml, moveToColumn } from "./view.js";
  *
  * @param {Event} event
  */
+
+
+
 const handleDragOver = (event) => {
   event.preventDefault();
   const path = event.path || event.composedPath();
@@ -36,83 +38,60 @@ const handleDragOver = (event) => {
   updateDraggingHtml({ over: column });
 };
 
-const handleDragStart = (event) => {};
+const handleDragStart = (event) => {
+
+    
+
+};
 
 const handleDragEnd = (event) => {};
 
 //Help buttons
 const handleHelpToggle = (event) => {
-  //
 
   html.help.overlay.style.display = "block";
-};
+
+};//
 
 const handleHelpToggleCancel = (event) => {
-  //
 
   html.help.overlay.style.display = "none";
   html.other.add.focus();
-};
+
+};//
 
 // Add buttons
 const handleAddToggle = (event) => {
-  //
 
   html.add.overlay.style.display = "block";
-};
+
+};//
+
 const handleAddToggleCancel = (event) => {
-  //
 
   html.add.overlay.style.display = "none";
 
   html.other.add.focus();
-};
+
+};//
 
 const handleAddSubmit = (event) => {
   event.preventDefault();
-
-  const ordered = document.querySelector('[data-column="ordered"]');
-
-  const random1 = Math.floor(Math.random() * 10000000000000000);
-  const random2 = Math.floor(Math.random() * 10000000000000000);
-  const timestamp = new Date().getTime();
-  return `${random1}-${timestamp}-${random2}`;
-
-  ordered.className = "order";
-  ordered.draggable = true;
-  ordered.dataset.id = id;
-
-  const hours = random1.getHours().toString().padStart(2, "0");
-  const minutes = random2.getMinutes().toString().padStart(2, "0");
-
-  const element = document.createElement("div");
-  element.className = "order";
-  element.draggable = true;
-  element.dataset.id = id;
-
-  const info = document.querySelector("input");
-
-  html.add.overlay.style.display = "none";
-
-  ordered.textContent = `
-    <div class="order__title" data-order-title>${title}</div>
-    
-    <dl class="order__details">
-        <div class="order__row">
-            <dt>Table:</dt>
-            <dd class="order__value" data-order-table>${table}</dd>
-        </div>
-
-        <div class="order__row">
-            <dt>Ordered:</dt>
-            <dd class="order__value">${hours}:${minutes}</dd>
-        </div>
-    </dl>
-`;
-  info.value = "";
-
-  //html.other.add.focus()
-};
+  // Get form input values
+  const title = html.add.title.value;
+  const table = html.add.table.value;
+  // Create new order object and add to state
+  const id = Object.keys(state.orders).length + 1;
+  const created = new Date();
+  const order = { id, title, table, created };
+  state.orders[id] = order;
+  // Create HTML element for new order and append to Ordered column
+  const orderElement = createOrderHtml(order);
+  html.area.ordered.append(orderElement);
+  // Reset form and hide add overlay
+  html.add.form.reset();
+  html.add.overlay.close();
+};//
 
 //Edit
 const handleEditToggle = (event) => {
@@ -233,3 +212,50 @@ for (const htmlArea of Object.values(html.area)) {
 //   editOrderOverlay.style.display = 'none';
 //   addOrderButton.focus();
 // });
+
+
+html.edit.form.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  orderId = event.target.dataset.id
+  state.orders[orderId].title = html.edit.title.value;
+  state.orders[orderId].table = html.edit.table.value;
+
+
+  const existingOrderElement = document.querySelector(`[data-id="${orderId}"]`);
+  html.area.ordered.removeChild(existingOrderElement);
+
+  const newOrderElement = createOrderHtml(state.orders[orderId]);
+  newOrderElement.setAttribute('data-id', orderId);
+
+});
+
+
+
+const handleEditSubmit = (event) => {
+
+  event.preventDefault();
+// Get form input values
+const title = html.edit.title.value;
+const table = html.edit.table.value;
+// Create new order object and add to state
+
+/*  const id = Object.keys(state.orders).length + 1;
+const created = new Date();
+const order = { id, title, table, created };
+
+state.orders[id] = order; */
+
+// Create HTML element for new order and append to Ordered column
+/* const orderElement = createOrderHtml(order);
+html.area.ordered.append(orderElement); */
+
+// Reset form and hide add overlay
+/*  html.add.form.reset();
+html.add.overlay.close();
+html.add.overlay.style.display = "none"; */
+
+
+};
+
+html.edit.form.addEventListener("submit", handleEditSubmit);//

@@ -1,72 +1,149 @@
+
+
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html>
+  <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        li {
-          margin-bottom: 10px;
-        }
-  
-        li button {
-          font-size: 8px;
-          margin-left: 20px;
-          color: #666;
-        }
-    </style>
-</head>
-<body>
-
-    <h1>My shopping list</h1>
-
-    <div>
-      <label for="item">Enter a new item:</label>
-      <input type="text" name="item" id="item">
-      <button>Add item</button>
+    <title>Kitchen Express</title>
+    <link rel="stylesheet" href="styless.css">
+  </head>
+  <body>
+    <h1>Kitchen Express</h1>
+    <div id="help-overlay" class="overlay">
+      <h2>Help</h2>
+      <p>Add an order by clicking the "Add Order" button and filling in the form. To edit an existing order, click on it and make changes in the overlay that appears. To move an order to a different column, simply drag and drop it to the desired column.</p>
+      <button id="close-help-overlay">Close</button>
     </div>
+    <div id="add-order-overlay" class="overlay">
+      <h2>Add Order</h2>
+      <form id="add-order-form">
+        <label for="food-input">Food:</label>
+        <input type="text" id="food-input" required>
+        <label for="table-select">Table:</label>
+        <select id="table-select" required>
+          <option value="" disabled selected>Select table</option>
+          <option value="1">Table 1</option>
+          <option value="2">Table 2</option>
+          <option value="3">Table 3</option>
+          <option value="4">Table 4</option>
+          <option value="5">Table 5</option>
+        </select>
+        <button type="submit">Add</button>
+        <button type="button" id="cancel-add-order">Cancel</button>
+      </form>
+    </div>
+    <div id="edit-order-overlay" class="overlay">
+      <h2>Edit Order</h2>
+      <form id="edit-order-form">
+        <label for="edit-food-input">Food:</label>
+        <input type="text" id="edit-food-input" required>
+        <label for="edit-table-select">Table:</label>
+        <select id="edit-table-select" required>
+          <option value="" disabled selected>Select table</option>
+          <option value="1">Table 1</option>
+          <option value="2">Table 2</option>
+          <option value="3">Table 3</option>
+          <option value="4">Table 4</option>
+          <option value="5">Table 5</option>
+        </select>
+        <label for="status-select">Status:</label>
+        <select id="status-select">
+          <option value="Ordered">Ordered</option>
+          <option value="Preparing">Preparing</option>
+          <option value="Served">Served</option>
+        </select>
+        <button type="submit">Update</button>
+        <button type="button" id="delete-order">Delete</button>
+        <button type="button" id="cancel-edit-order">Cancel</button>
+      </form>
+    </div>
+    <div class="column">
+      <h3>Ordered</h3>
+      <div id="ordered-container" class="order-container">
+        <!-- orders will be dynamically added here -->
+      </div>
+    </div>
+    <div class="column">
+      <h3>Preparing</h3>
+      <div id="preparing-container" class="order-container">
+        <!-- orders will be dynamically added here -->
+      </div>
+    </div>
+    <div class="column">
+      <h3>Preparing</h3>
+      <div id="preparing" class="orders" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <!-- Orders added dynamically here -->
+      </div>
+  </div>
 
-    <ul>
+  <div class="column">
+      <h3>Served</h3>
+      <div id="served" class="orders" ondrop="drop(event)" ondragover="allowDrop(event)">
+          <!-- Orders added dynamically here -->
+      </div>
+  </div>
 
-    </ul>
+</div>
 
-    <script>
+<!-- Order overlay -->
+<div id="order-overlay" class="overlay">
+  <div class="overlay-content">
+      <h2>Add Order</h2>
+      <label for="food-input">Food:</label>
+      <input type="text" id="food-input" name="food" required>
+      <label for="table-select">Table:</label>
+      <select id="table-select" name="table" required>
+          <option value="" disabled selected>Select table</option>
+          <option value="1">Table 1</option>
+          <option value="2">Table 2</option>
+          <option value="3">Table 3</option>
+          <option value="4">Table 4</option>
+      </select>
+      <button id="cancel-btn" class="btn">Cancel</button>
+      <button id="add-btn" class="btn">Add</button>
+  </div>
+</div>
 
-        const ul = document.querySelector('ul');
-        const input = document.querySelector('input');
-        const button = document.querySelector('button');
+<!-- Order edit overlay -->
+<div id="order-edit-overlay" class="overlay">
+  <div class="overlay-content">
+      <h2>Edit Order</h2>
+      <label for="food-input-edit">Food:</label>
+      <input type="text" id="food-input-edit" name="food-edit" required>
+      <label for="table-select-edit">Table:</label>
+      <select id="table-select-edit" name="table-edit" required>
+          <option value="" disabled selected>Select table</option>
+          <option value="1">Table 1</option>
+          <option value="2">Table 2</option>
+          <option value="3">Table 3</option>
+          <option value="4">Table 4</option>
+      </select>
+      <label for="status-select-edit">Status:</label>
+      <select id="status-select-edit" name="status-edit" required>
+          <option value="" disabled selected>Select status</option>
+          <option value="ordered">Ordered</option>
+          <option value="preparing">Preparing</option>
+          <option value="served">Served</option>
+      </select>
+      <button id="delete-btn" class="btn">Delete</button>
+      <button id="cancel-btn-edit" class="btn">Cancel</button>
+      <button id="update-btn" class="btn">Update</button>
+  </div>
+</div>
 
-        const clicked = () => {
+<!-- Help overlay -->
+<div id="help-overlay" class="overlay">
+  <div class="overlay-content">
+      <h2>Help</h2>
+      <p>Click the "Add Order" button to add a new order. Use the "Edit" button to edit or delete an existing order. Drag and drop orders between columns to change their status.</p>
+      <button id="close-help-btn" class="btn">Close</button>
+  </div>
+</div>
 
-            const info = input.value;
+<script src="kck.js"></script>
 
-            input.value = '';
-
-            const li = document.createElement('li');
-            const span = document.createElement('span');
-            const button = document.createElement('button');
-
-            li.appendChild(span);
-            li.appendChild(button);
-
-            span.textContent = info;
-            button.textContent = 'Delete';
-
-            ul.appendChild(li);
-
-            button.addEventListener('click', ()=>{
-
-                ul.removeChild(li);
-            });
-
-            input.focus();
-
-        }
-
-        button.addEventListener('click', clicked)
-
-    </script>
-    
 </body>
 </html>
+
+
+

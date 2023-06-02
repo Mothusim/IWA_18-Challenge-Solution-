@@ -71,7 +71,7 @@ const MONTHS = [
 const section1 = document.querySelector('[data-athlete="NM372"]')
 
 const title1 = document.createElement('h2')
-title1.innerHTML = data.response.data.NM372.id
+title1.innerHTML = data.responsde.data.NM372.id
 
 section1.appendChild(title1)
 

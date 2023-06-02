@@ -82,11 +82,11 @@ const addCell = (existing, classString, value) => {
 
 const createHtml = (data) => {
   let result = "";
-
+  console.log(data)
   for (const { week, days } of data) {
     let inner = "";
     inner = addCell(inner, "table__cell table__cell_sidebar", `Week ${week}`);
-
+    
     for (const { dayOfWeek, value } of days) {
       let classString = "table__cell";
       const isToday = new Date().getDate() === value;
